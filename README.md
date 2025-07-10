@@ -89,7 +89,6 @@ Top predictors identified:
 | `Instagram_User_Type_Detection.ipynb` | Main Jupyter Notebook with full analysis |
 | `figures/`                | Exported images (Confusion Matrix, Boxplots, Feature Importances) |
 | `requirements.txt`        | Python libraries used |
-| `.gitignore`              | Ignore temp files like `.ipynb_checkpoints/` |
 
 ---
 
