@@ -6,10 +6,10 @@ This project aims to classify Instagram accounts into four categories — **Real
 
 ## 📌 Objectives
 
-- Identify **suspicious accounts** (bots, scams, spam) from normal users
-- Use both **heuristic rules** and **machine learning models**
-- Understand key patterns through **EDA** and **feature engineering**
-- Benchmark different classifiers to find the best model
+- Detect **suspicious accounts** using both rules-based heuristics and supervised learning
+- Perform structured **feature engineering** for pattern discovery
+- Use **EDA** to understand behavioral signals across account types
+- Benchmark classifiers to identify the most robust model
 
 ---
 
@@ -27,24 +27,23 @@ This project aims to classify Instagram accounts into four categories — **Real
 
 ## 🛠️ Feature Engineering Highlights
 
-- **Follow Ratio** = `Following / (Followers + 1)`
-- **Post Ratio** = `Posts / (Followers + 1)`
-- **Binary Flags**:
-  - `NoBio`, `NoProfilePic`, `NoPosts`
-- **Log-transformed ratios** to mitigate outlier effects
-- **New hybrid features**: `NoBio_NoPic`, `NoPic_NoPost`
+- **Follow Ratio** = Following / (Followers + 1)
+- **Post Ratio** = Posts / (Followers + 1)
+- **Binary Flags**: NoBio, NoProfilePic, NoPosts
+- Log-transformed ratios to handle skewness
+- Hybrid binary features for behavioral pattern amplification
+
 
 ---
 
-## 📈 EDA Insights
+## 📈 Key EDA Insights
 
-- `Bot` accounts have unusually high **Following** with near-zero posts
-- `Scam` accounts have **high Follow Ratio** despite low Followers
-- `Spam` accounts show **extremely high Follower counts**, distorting the mean
-- **Binary Features** are useful for rule-based detection
+- `Bot` accounts: High **Following**, near-zero posting
+- `Scam` accounts: Inflated **Follow Ratios**, minimal followers
+- `Spam` accounts: Abnormally high **Follower counts**
+- Binary heuristics effective for initial detection layers
 
-📌 Visualization samples available in the `figures/` folder.
-
+> Visualization samples provided in the `figures/` folder.
 ---
 
 ## 🤖 Model Benchmarking
@@ -62,10 +61,9 @@ This project aims to classify Instagram accounts into four categories — **Real
 ## 📊 Final Model Performance
 
 - Overall Accuracy: **96%**
-- High classification accuracy across all labels
-- Slight confusion between `Real` and `Spam` classes
-
-📁 See full classification report and confusion matrix in `figures/`
+- Stable classification performance across all categories  
+- Slight confusion between `Real` and `Spam` accounts (behavioral overlap)  
+- Model interpretability via feature importances
 
 ---
 
@@ -83,18 +81,24 @@ Top predictors identified:
 
 ## 📂 Repository Structure
 
-| File / Folder              | Description |
-|---------------------------|-------------|
-| `README.md`               | Project overview and key results |
-| `Instagram_User_Type_Detection.ipynb` | Main Jupyter Notebook with full analysis |
-| `figures/`                | Exported images (Confusion Matrix, Boxplots, Feature Importances) |
-| `requirements.txt`        | Python libraries used |
+| File / Folder         | Description                                    |
+|-----------------------|------------------------------------------------|
+| `README.md`           | Project overview and key results               |
+| `notebook/`           | Jupyter Notebook with full analysis            |
+| `models/`             | Saved trained Random Forest model (.pkl file)  |
+| `figures/`            | Exported images (confusion matrix, plots, etc.)|
+| `requirements.txt`    | Python libraries used                          |
+
+
+## 📦 Model Delivery
+
+Final trained model saved in:  
+`models/final_random_forest_model.pkl`
+
+Ready for inference or integration into detection pipelines.
 
 ---
 
-## ⚙️ How to Run
-
-1. Clone the repo  
-   ```bash
-   git clone https://github.com/yourusername/instagram-user-type-detection.git
-   cd instagram-user-type-detection
+<p align="center">
+  🎯 A data-driven approach to explainable Instagram account classification.
+</p>
